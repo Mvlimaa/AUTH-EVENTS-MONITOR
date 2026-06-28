@@ -1,43 +1,77 @@
-<!-- codigo Reutilizado de minha autoria. -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auth Events Monitor</title>
     
 </head>
 <header>
+
+    <div class="usuario_container" style="background-color: rgba(0, 0, 0, 0.151); width:35%; margin-left: 15%;">
+
+    <h1>Usuario: marcelovynicius@gmail.com</h1>
+    <p>Perfil: Administrador ou Usuario.</p>
+    <p>Token de acesso: jwt0987rfgvhbjnajsdi876721yu90dosayt12ehuodjiaskfi88</p>
+    <p>Sessão Status: Ativa, inativa ou sessão revogada </p>
+
+    </div>
+
+    <div class="eventos_container" style="background-color: rgba(0, 0, 0, 0.151); width: 22%; margin-left: 15%;">
+
+    <h1>Eventos em tempo real:</h1>
+    <p>- USER_LOGGED_IN - usuario@55pbx.com - 14:32:10</p>
+    <p>- SESSION_VALIDATED - usuario@55pbx.com - 14:32:20</p>
+    <p>- SESSION_REVOKED - usuario@55pbx.com - 14:33:01</p>
+
+    </div>
+    <button id="btnValidar" class="btn_validar">Validar</button>
+    <button id="btnRevogar" class="btn_revogar">Revogar</button>
+    <button id="btnAdmin" class="btn_admin">Administrador</button>
 </header>
 <body>
-<div class="login_container">
-            
-            <h1>Auth Events Monitor</h1>
-            
-            <p>Insira suas credenciais para continuar</p>
-            
-            <form>
-                
-                <div class="input_login">
-                    <label for="usuario">Email</label>
-                    <input type="email" id="usuario" name="usuario" placeholder="Insira seu Email" required>
-                </div>
-                
-                <div class="input_login">
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" placeholder="Insira sua senha" required>
-                </div>
-                
-                <button type="submit" class="btn_login" onclick="handleLogin(event)">Login</button>
-            
-            </form>
-            
-            <div class='footer_text'>Não tem uma conta? </div>
-            
-            <div class="cadastre_se_link">
-                <a id="cadastre_se">Cadastre-se</a>
-            </div>
-        
-</div>
 
-</body></html>
+    <!-- codigo Reutilizado de minha autoria. -->
+    <div class="login_container" style="
+            width: 100%;    
+            max-width: 320px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            width: 320px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+            align-self: center;
+            margin-left: 40%;">
+            
+        <h1>Auth Events Monitor</h1>
+            
+        <p>Insira suas credenciais para continuar</p>
+            
+        <form>
+                
+            <div class="input_login">
+                <label for="usuario">Email</label>
+                <input type="email" id="usuario" name="usuario" placeholder="Insira seu Email" required>
+            </div>
+                
+            <div class="input_login">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Insira sua senha" required>
+            </div>
+                
+            <button type="submit" class="btn_login">Login</button>
+            
+        </form>
+            
+        <div class='footer_text'>Não tem uma conta? </div>
+            
+        <div class="cadastre_se_link">
+            <a id="cadastre_se">Cadastre-se</a>
+        </div>
+
+    </div>
+</body>
+</html>
