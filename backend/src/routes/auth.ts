@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { usuariosCADASTRADOS } from '../data/users';
-import { emitEvent } from '../routes/events';
+import { evento } from '../routes/events';
 
 const authRouter = Router();
 
@@ -15,12 +15,12 @@ authRouter.post('/login', (req, res) => {
     // Gera um token fictício para o usuário
     const token = usuario.role === 'admin' ? 'token-admin-123' : 'token-user-123';
 
-    emitEvent('USER_LOGGED_IN', { email: usuario.email, role: usuario.role, timestamp: new Date() });
+    evento('USER_LOGGED_IN', { email: usuario.email, role: usuario.role, timestamp: new Date() });
     
     res.status(200).json({ mensagem: 'Login com sucesso!', token, perfil: usuario.role });
   } else {
 
-    emitEvent('FAILED_LOGIN_ATTEMPT', { email, timestamp: new Date() });
+    evento('FAILED_LOGIN_ATTEMPT', { email, timestamp: new Date() });
     
     res.status(401).json({ erro: 'Email ou senha incorretos' });
   }

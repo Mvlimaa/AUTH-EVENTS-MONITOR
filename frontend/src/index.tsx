@@ -1,11 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState,  } from 'react';
 import ReactDOM from 'react-dom/client';
 
 function App() {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [eventos, setEventos] = useState<string[]>([]);
 
+  // Effect para buscar eventos em tempo real do backend. Formatando os dados do evento e o formato da hora para o padrão exigido.
+  useEffect(() => {
+
+    const sse = new EventSource('http://localhost:3001/events');
+    sse.onmessage = (eventoRecebido) => {
+      const dados = JSON.parse(eventoRecebido.data);
+      const hora = new Date(dados.timestamp || new Date()).toLocaleTimeString('pt-BR');
+      const infoEmail = dados.email ? ` - ${dados.email}` : '';
+      const eventoFormatado = `- ${dados.eventName}${infoEmail} - ${hora}`;
+      setEventos((eventosAnteriores) => [...eventosAnteriores, eventoFormatado]);
+
+    };
+    
+    return () => sse.close();
+  }, []);
+
+  // Função para lidar com o envio do formulário de login.
   const handleLogin = async (evento: React.FormEvent) => {
     evento.preventDefault();
 
@@ -17,10 +35,11 @@ function App() {
       });
 
       const dados = await resposta.json();
+      
       console.log('Resposta do Servidor:', dados);
 
     } catch (erro) {
-      console.log('Erro de conexão.', erro);
+      alert('Erro ao tentar se conectar ao servidor.');
     }
   };
 
@@ -36,7 +55,11 @@ function App() {
 
         <div className="eventos_container" style={{ backgroundColor: 'rgba(0, 0, 0, 0.151)', width: '25%', marginLeft: '15%' }}>
           <h1>Eventos em tempo real:</h1>
-          <p></p>
+          {eventos.map((setEventos, index) => (
+             <p key={index}>
+               {setEventos}
+             </p>
+          ))}
         </div>
         <button id="btnValidar" className="btn_validar">Validar</button>
         <button id="btnRevogar" className="btn_revogar">Revogar</button>

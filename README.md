@@ -17,6 +17,7 @@
 * -Conexão finalizada e inicio de criação das rotas.
 * -mudei totalmente as estrutura do React, percebi que estava usando um hmlt e o type quase vanila, lendo as documentações percebi a forma certa de utilizar o react e maximizar a produção.
 * -Rota de Login 100% funcional e retornando o status code e o evento atribuido a cada status.
+* -Configurei a lista de eventos do frontend para receber os eventos em tempo real.
 
 ## Diferença entre autenticação e autorização
 
@@ -24,10 +25,18 @@
 ## Fluxo de eventos
 
 
-## Pontos de melhoria
 
+## Pontos de melhoria
+* -implementar o token JWT
+* -implementar algum banco de dados para armazenar os Usuarios.
+* -criar um formulario de cadastro para cadastrar novos usuarios.
 
 ## Dificuldades encontradas 
-
+* -problemas com a estrutura do React por fazer muito tempo sem usar, tive problemas no inicio.
+* -definir o formato da entrada de dados dos eventos.
 
 ## Bibliotecas utilizadas
+* -React
+* -node.js
+* -express
+* -cors

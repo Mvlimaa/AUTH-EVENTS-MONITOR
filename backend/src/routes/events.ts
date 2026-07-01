@@ -18,7 +18,7 @@ eventsRouter.get('/', (req, res) => {
   });
 });
 
-export const emitEvent = (eventName: string, payload: any) => {
+export const evento = (eventName: string, payload: any) => {
   const message = `data: ${JSON.stringify({ eventName, ...payload })}\n\n`;
   clientes.forEach(client => client.write(message));
 };
