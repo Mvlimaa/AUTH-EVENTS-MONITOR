@@ -15,6 +15,8 @@
 * -Desenvolvi a base dos componentes da tela para otimizar as etapas seguintes do projeto.
 * -Inicializei a configuração e primeiros testes do servidor backend.
 * -Conexão finalizada e inicio de criação das rotas.
+* -mudei totalmente as estrutura do React, percebi que estava usando um hmlt e o type quase vanila, lendo as documentações percebi a forma certa de utilizar o react e maximizar a produção.
+* -Rota de Login 100% funcional e retornando o status code e o evento atribuido a cada status.
 
 ## Diferença entre autenticação e autorização
 

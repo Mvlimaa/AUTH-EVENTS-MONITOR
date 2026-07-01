@@ -1,8 +1,8 @@
 import express from 'express';
-import cors = require('cors');
-import authRouter from './routes/auth'
+import cors from 'cors';
+import authRouter from './routes/auth';
 import eventsRouter from './routes/events';
-import adminRouter from'./routes/admin';
+import adminRouter from './routes/admin';
 
 const app = express();
 
